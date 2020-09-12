@@ -49,15 +49,14 @@ class Search extends Component{
              <li key={book.id}>
                <div className="book">
                 <div className="book-top">
-                  <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 				                                                						`url(${book.imageLinks?book.imageLinks.thumbnail:1})`}}>
-                  </div>
+                  <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:`url(${book.imageLinks?book.imageLinks.thumbnail:1})`}}></div>
                   <div className="book-shelf-changer">
-                    <select>
-                      <option value="move" disabled>Move to...</option>
-         <option value="currentlyReading"selected={book.shelf==='currentlyReading'}onClick={(event)=>{this.sendToCollection(event,book.id)}}>Currently Reading</option>
-                       <option value="wantToRead" selected={book.shelf==='wantToRead'} onClick={(event)=>{this.sendToCollection(event,book.id)}}>Want to Read</option>
-                       <option value="read" selected={book.shelf==='read'} onClick={(event)=>{this.sendToCollection(event,book.id)}}>Read</option>
-                       <option value="none" selected={!book.shelf||book.shelf==='none'} onClick={(event)=>{this.props.removeBook(event,book.id)}}>None</option>
+                    <select onChange={(event)=>{this.sendToCollection(event,book.id)}}>
+                       <option value="move" disabled>Move to...</option>
+                       <option value="currentlyReading"selected={book.shelf==='currentlyReading'}>Currently Reading</option>
+                       <option value="wantToRead" selected={book.shelf==='wantToRead'}>Want to Read</option>
+                       <option value="read" selected={book.shelf==='read'}>Read</option>
+                       <option value="none" selected={!book.shelf||book.shelf==='none'}>None</option>
                       </select>
                      </div>
                     </div>

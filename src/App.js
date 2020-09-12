@@ -40,13 +40,11 @@ moveTo=(event,id)=>{
 
 removeBook=(event,id)=>{
     const books=this.state.books.filter((book)=>book.id!==id);
-    console.log(event.target.value,id);
     this.setState((prevState)=>({
          books:books
     }));
   	const book=this.state.books.filter((book)=>book.id===id)[0];
   	book.shelf=event.target.value;
-    console.log(book);
   	BooksAPI.update(book,book.shelf);
 }
 
